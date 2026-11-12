@@ -1,4 +1,4 @@
-# vhtoolbox
+# vhtoolbox <img src="man/figures/logo.png" align="right" height="139" alt="vhtoolbox logo" />
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -91,13 +91,12 @@ times; no NA in coordinates or times.
 - **One function per file**, named `Rfun_<topic>_<name>.R` (e.g. `Rfun_argos_end_speed_check.R`).
   Internal helpers start with a dot (`.prepare_track()`) and live in the file of the function
   that uses them.
-- **Documentation in roxygen2 style** (`#' @param`, `@return`, `@examples`, `@references`), so
-  `roxygen2::roxygenise()` can build help pages later.
+- **Documentation in roxygen2 style** (`#' @param`, `@return`, `@examples`, `@references`)
 - **Data columns in functions are arguments** (`lat = "lat"`, `datetime = "date"`), not fixed names.
 - **No hidden global objects**: every parameter is an argument; species-specific values have
   no default.
 
-If you want to contribute to this repo you are very welcome to do so:
+**If you want to contribute to this repo you are very welcome to do so.**
 Adding a function: write `Rfun_<topic>_<name>.R` → add an example → add a test to an
 `eval_` script → add a row to the table above. Add your name to the authors list below.
 
@@ -136,4 +135,6 @@ documentation and under [References](#references).
   relation to the bathymetry and productivity of the Southern Ocean. *Antarctic Science* 4:
   393–398.
 
-**Author(s):** Vital Heim (primary)
+## Author(s)
+
+- Vital Heim (primary)
