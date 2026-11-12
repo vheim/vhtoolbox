@@ -1,4 +1,4 @@
-# vhtoolbox <img src="man/figures/logo.png" align="right" height="139" alt="vhtoolbox logo" />
+# vhtoolbox <img src="man/figures/logo.png" align="right" height="200" alt="vhtoolbox logo" />
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
