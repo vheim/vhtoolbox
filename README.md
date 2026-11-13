@@ -8,7 +8,7 @@
 **R toolbox by Vital Heim for movement ecology and telemetry, statistics, data wrangling and
 visualisation.**
 
-A growing collection of documented, (hpefully) reusable R functions and scripts from my analyses of
+A growing collection of documented, (hopefully) reusable R functions and scripts from my analyses of
 animal movement data (e.g. satellite and acoustic telemetry of sharks): data cleaning and
 filtering, spatial calculations, statistics and plotting. Whenever possible, functions are written so they work
 with any data layout (column names are arguments).
@@ -30,19 +30,17 @@ that fully documented versions of some functions may only be available at a late
 
 ## Available functions and scripts (to be continued)
 
-### Spatial calculations
+### General spatial calculations
 
 | Function | Description |
 |----------|-------------|
-| `geo_dist_m()` | Geodesic distance in metres on the WGS84 ellipsoid (geosphere; one point vs. many) |
+| TBC | TBC |
 
-### Movement & telemetry 1: Argos satellite tracking
+### Movement & telemetry 1: Filtering Argos derived satellite tracking data
 
 | Function | Description |
 |----------|-------------|
 | `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location |
-| `argos_end_location_check()` | Angle test (rows 2, n−1) and speed test (rows 2, n−1, n) for one track |
-| `argos_end_speed_check()` | Root-mean-square speed test (McConnell et al. 1992) for end locations, with neighbours that exist |
 | `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) |
 
 <details>
@@ -58,10 +56,9 @@ that exist). The first location (tagging location) is never tested.
 ```
 argosfilter::sdafilter()                  separate step, run first
 sdafilter_plus()
- └─ argos_end_location_check()
-     ├─ sdafilter_ends()                  angle test, rows 2 and n−1
-     └─ argos_end_speed_check()           speed test, rows 2, n−1, n
-         └─ geo_dist_m()                  distances
+ ├─ sdafilter_ends()                      angle test, rows 2 and n−1
+ └─ .argos_end_speed_check()  (internal)  speed test, rows 2, n−1, n
+         └─ geosphere::distGeo()          (WGS84 distances)
 ```
 
 Requirements: location class Z removed; at least 5 locations per individual; POSIXct
@@ -76,7 +73,7 @@ times; no NA in coordinates or times.
 
 ## Data wrangling
 
-| Script | Description |
+| Function | Description |
 |--------|-------------|
 |TBD | TBD |
 
@@ -88,7 +85,7 @@ times; no NA in coordinates or times.
 
 ## Conventions
 
-- **One function per file**, named `Rfun_<topic>_<name>.R` (e.g. `Rfun_argos_end_speed_check.R`).
+- **One function per file**, named `Rfun_<topic>_<name>.R` (e.g. `Rfun_sdafilter_plus.R`).
   Internal helpers start with a dot (`.prepare_track()`) and live in the file of the function
   that uses them.
 - **Documentation in roxygen2 style** (`#' @param`, `@return`, `@examples`, `@references`)
