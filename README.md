@@ -30,18 +30,21 @@ that fully documented versions of some functions may only be available at a late
 
 ## Available functions and scripts (to be continued)
 
-### General spatial calculations
+### General (spatial) calculations
 
-| Function | Description |
-|----------|-------------|
-| TBC | TBC |
+| Function | Description | Status |
+|----------|-------------|--------|
+| `convert_tz` | TBC | not documented |
 
 ### Movement & telemetry 1: Filtering Argos derived satellite tracking data
 
-| Function | Description |
-|----------|-------------|
-| `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location |
-| `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) |
+| Function | Description | Status |
+|----------|-------------|--------|
+| `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location | documented |
+| `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) | documented |
+| `make_unique()` | Short wrapper to deal with near duplicate datetime-stamps when working with tracking data | not documented |
+| `check_duplicated_ts()` | Find duplicated time stamps in datetime column of e.g. animal tracking data | not documented |
+
 
 <details>
 <summary>Why an additional end-location check?</summary>
@@ -67,21 +70,21 @@ times; no NA in coordinates or times.
 
 ## Statistics
 
-| Script | Description |
-|--------|-------------|
-|TBD | TBD |
+| Script | Description | Status |
+|----------|-----------|--------|
+|TBD | TBD | TBD |
 
 ## Data wrangling
 
-| Function | Description |
-|--------|-------------|
-|TBD | TBD |
+| Function | Description | Status |
+|----------|-------------|--------|
+|TBD | TBD | TBD |
 
 ## Visualisation
 
-| Script | Description |
-|--------|-------------|
-|TBD | TBD |
+| Script | Description | Status |
+|----------|-----------|--------|
+|TBD | TBD | TBD |
 
 ## Conventions
 
