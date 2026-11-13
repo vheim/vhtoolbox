@@ -34,7 +34,7 @@ that fully documented versions of some functions may only be available at a late
 
 | Function | Description | Status |
 |----------|-------------|--------|
-| `convert_tz` | TBC | not documented |
+| `convert_tz` | Quick timezone change if e.g. tagging data is local TZ but tracking equipment set to UTC | not documented |
 
 ### Movement & telemetry 1: Filtering Argos derived satellite tracking data
 
