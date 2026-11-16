@@ -8,7 +8,7 @@
 **R toolbox by Vital Heim for movement ecology and telemetry, statistics, data wrangling and
 visualisation.**
 
-A growing collection of documented, (hopefully) reusable R functions and scripts from my analyses of
+A growing collection of (mostly documented and hopefully) reusable R functions and scripts from my analyses of
 animal movement data (e.g. satellite and acoustic telemetry of sharks): data cleaning and
 filtering, spatial calculations, statistics and plotting. Whenever possible, functions are written so they work
 with any data layout (column names are arguments).
@@ -36,15 +36,18 @@ that fully documented versions of some functions may only be available at a late
 |----------|-------------|--------|
 | `convert_tz` | Quick timezone change if e.g. tagging data is local TZ but tracking equipment set to UTC | not documented |
 
-### Movement & telemetry 1: Filtering Argos derived satellite tracking data
+### Movement & telemetry 1: Filtering, quality control, and simulation of Argos derived satellite tracking data
 
 | Function | Description | Status |
 |----------|-------------|--------|
-| `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location | documented |
-| `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) | documented |
+| **(A) Pre-processing**|||
 | `make_unique()` | Short wrapper to deal with near duplicate datetime-stamps when working with tracking data | not documented |
 | `check_duplicated_ts()` | Find duplicated time stamps in datetime column of e.g. animal tracking data | not documented |
-
+| **(B) Speed-distance-angle-filters** |||
+| `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location | documented |
+| `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) | documented |
+| **(C) State-space models (SSMs)** |||
+| `import_sda_data()` | Function to find and select most recent (sda-filtered) datasets for SSM-input | documented |
 
 <details>
 <summary>Why an additional end-location check?</summary>
