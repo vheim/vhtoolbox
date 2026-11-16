@@ -40,13 +40,13 @@ that fully documented versions of some functions may only be available at a late
 
 | Function | Description | Status |
 |----------|-------------|--------|
-| **(A) Pre-processing**|||
+| *(A) Pre-processing*|||
 | `make_unique()` | Short wrapper to deal with near duplicate datetime-stamps when working with tracking data | not documented |
 | `check_duplicated_ts()` | Find duplicated time stamps in datetime column of e.g. animal tracking data | not documented |
-| **(B) Speed-distance-angle-filters** |||
+| *(B) Speed-distance-angle-filters* |||
 | `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location | documented |
 | `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) | documented |
-| **(C) State-space models (SSMs)** |||
+| *(C) State-space models (SSMs)* |||
 | `import_sda_data()` | Function to find and select most recent (sda-filtered) datasets for SSM-input | documented |
 
 <details>
