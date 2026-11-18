@@ -13,7 +13,70 @@ animal movement data (e.g. satellite and acoustic telemetry of sharks): data cle
 filtering, spatial calculations, statistics and plotting. Whenever possible, functions are written so they work
 with any data layout (column names are arguments).
 
+I do my best to document all functions in roxygen2 style. However, life, time constraints,
+other projects, fieldwork, etc. may keep me from properly documenting functions, so
+that fully documented versions of some functions may only be available at a later time.
+Function names are written following the `snake_case` naming convention.
+
 New tools are added as they come up in projects.
+
+## Quick overview
+
+```mermaid
+flowchart LR
+  subgraph L1["Repository"]
+    R["vhtoolbox"]
+  end
+  subgraph L2["Topics"]
+    T1["Data wrangling"]
+    T2["Statistics"]
+    T3["General spatial calculations"]
+    T4["Movement & telemetry 1:<br/>Argos derived satellite tracking data"]
+    T5["Visualisation"]
+  end
+  subgraph L3["Functions"]
+    F1["convert_tz()"]
+    F2["coming soon"]
+    F3["get_buffered_bbox()"]
+    F4["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
+    F5["coming soon"]
+  end
+  subgraph L4["Examples"]
+    E1["coming soon"<br/><i>example1(), example2()</i>"]
+    E2["coming soon"]
+    E3["coming soon"]
+    E4["coming soon"]
+    E5["coming soon"]
+  end
+
+  R --> T1 & T2 & T3 & T4 & T5
+  T1 --> F1 --> E1
+  T2 --> F2 --> E2
+  T3 --> F3 --> E3
+  T4 --> F4 --> E4
+  T5 --> F5 --> E5
+
+  %% One example box per topic: replace "coming soon" with the example name(s),
+  %% each followed by the functions it uses in italics, e.g.
+  %%   E4["Rexample_sdafilter_plus.R<br/><i>sdafilter_plus(), sdafilter_ends()</i>"]
+
+  classDef repo     fill:#E0E0E0,stroke:#616161,color:#000;
+  classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
+  classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
+  classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
+  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#000;
+  class R repo;
+  class T1,T2,T3,T4,T5 topic;
+  class F1,F2,F3,F4,F5 func;
+  class E1,E2,E3,E4,E5 example;
+  class L1,L2,L3,L4 level;
+```
+
+Grey = repository · green = topics · blue = functions · gold = examples
+(functions used by each example in *italics*).
+
+Descriptions, documentation status, examples and background for each function are in the
+[topic sections below](#functions-and-examples).
 
 ## Installation
 
@@ -23,27 +86,40 @@ The functions are not a package yet. Just load them all with `source()`:
 fun_dir <- "path/to/vhtoolbox"
 for (f in list.files(fun_dir, pattern = "^Rfun_.*\\.R$", full.names = TRUE)) source(f)
 ```
+## Functions and examples (to be continued)
 
-I do my best to document all functions in roxygen2 style. However, life, time constraints,
-other projects, fieldwork, etc. may keep me from properly documenting functions, so
-that fully documented versions of some functions may only be available at a later time.
+### Data wrangling
 
-## Available functions and scripts (to be continued)
-
-### General (spatial) calculations
+#### Functions
 
 | Function | Description | Status |
 |----------|-------------|--------|
-| `convert_tz` | Quick timezone change if e.g. tagging data is local TZ but tracking equipment set to UTC | not documented |
+| `convert_tz()` | Quick timezone change if e.g. tagging data is local TZ but tracking equipment set to UTC | not documented |
 
-### Movement & telemetry 1: Filtering, quality control, and simulation of Argos derived satellite tracking data
+### Statistics
+
+*Coming soon.*
+
+### General spatial calculations
+
+#### Functions
+
+| Function | Description | Status |
+|----------|-------------|--------|
+| `get_buffered_bbox()` | Find the bounding box (bbox) around your location data, with an optional buffer | documented |
+
+### Movement & telemetry 1: Argos derived satellite tracking data
+
+Filtering, quality control, and simulation of Argos derived satellite tracking data.
+
+#### Functions
 
 | Function | Description | Status |
 |----------|-------------|--------|
 | *(A) Pre-processing*|||
 | `make_unique()` | Short wrapper to deal with near duplicate datetime-stamps when working with tracking data | not documented |
 | `check_duplicated_ts()` | Find duplicated time stamps in datetime column of e.g. animal tracking data | not documented |
-| *(B) Speed-distance-angle-filters* |||
+| *(B) Speed-distance-angle filters* |||
 | `sdafilter_plus()` | **Main function.** End-location check after `argosfilter::sdafilter()`; returns one filter status per location | documented |
 | `sdafilter_ends()` | `argosfilter::sdafilter()` that keeps the angle result for rows 2 and n−1 (GPL, derived from argosfilter) | documented |
 | *(C) State-space models (SSMs)* |||
@@ -71,25 +147,22 @@ Requirements: location class Z removed; at least 5 locations per individual; POS
 times; no NA in coordinates or times.
 </details>
 
-## Statistics
+#### Examples
 
-| Script | Description | Status |
-|----------|-----------|--------|
-|TBD | TBD | TBD |
+| Example | Shows | Uses |
+|---------|-------|------|
+| *Coming soon* | | |
 
-## Data wrangling
+### Visualisation
 
-| Function | Description | Status |
-|----------|-------------|--------|
-|TBD | TBD | TBD |
-
-## Visualisation
-
-| Script | Description | Status |
-|----------|-----------|--------|
-|TBD | TBD | TBD |
+*Coming soon.*
 
 ## Conventions
+
+| Type | Folder | File name |
+|------|--------|-----------|
+| Function | `R/` | `Rfun_<topic>_<name>.R` (e.g. `Rfun_sdafilter_plus.R`) |
+| Example (workflow) | `inst/examples/` | `Rexample_<topic>.R` (e.g. `Rexample_sdafilter_plus.R`) |
 
 - **One function per file**, named `Rfun_<topic>_<name>.R` (e.g. `Rfun_sdafilter_plus.R`).
   Internal helpers start with a dot (`.prepare_track()`) and live in the file of the function
@@ -100,13 +173,16 @@ times; no NA in coordinates or times.
   no default.
 
 **If you want to contribute to this repo you are very welcome to do so.**
-Adding a function: write `Rfun_<topic>_<name>.R` → add an example → add a test to an
-`eval_` script → add a row to the table above. Add your name to the authors list below.
+Adding a function: write `Rfun_<topic>_<name>.R` → add an example `Rexample_<topic>.R` →
+add a test `test-<name>.R` → add a row to the topic table above and a box to the
+[overview](#quick-overview). Add your name to the authors list below.
 
 ## Dependencies
 
-Depends on the functions used. Currently: [argosfilter](https://CRAN.R-project.org/package=argosfilter)
-(tested with 0.70), [geosphere](https://CRAN.R-project.org/package=geosphere)
+| Package | Version |
+|---------|---------|
+| [argosfilter](https://CRAN.R-project.org/package=argosfilter) | 0.70 |
+| [geosphere](https://CRAN.R-project.org/package=geosphere) | 1.6-8 | 
 
 ## Licence
 

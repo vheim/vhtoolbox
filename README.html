@@ -365,22 +365,80 @@ functions and scripts from my analyses of animal movement data
 filtering, spatial calculations, statistics and plotting. Whenever
 possible, functions are written so they work with any data layout
 (column names are arguments).</p>
+<p>I do my best to document all functions in roxygen2 style. However,
+life, time constraints, other projects, fieldwork, etc. may keep me from
+properly documenting functions, so that fully documented versions of
+some functions may only be available at a later time. Function names are
+written following the <code>snake_case</code> naming convention.</p>
 <p>New tools are added as they come up in projects.</p>
+<div id="quick-overview" class="section level2">
+<h2>Quick overview</h2>
+<pre class="mermaid"><code>flowchart LR
+  subgraph L1[&quot;Repository&quot;]
+    R[&quot;vhtoolbox&quot;]
+  end
+  subgraph L2[&quot;Topics&quot;]
+    T1[&quot;Data wrangling&quot;]
+    T2[&quot;Statistics&quot;]
+    T3[&quot;General spatial calculations&quot;]
+    T4[&quot;Movement &amp; telemetry 1:&lt;br/&gt;Argos derived satellite tracking data&quot;]
+    T5[&quot;Visualisation&quot;]
+  end
+  subgraph L3[&quot;Functions&quot;]
+    F1[&quot;convert_tz()&quot;]
+    F2[&quot;coming soon&quot;]
+    F3[&quot;get_buffered_bbox()&quot;]
+    F4[&quot;make_unique()&lt;br/&gt;check_duplicated_ts()&lt;br/&gt;sdafilter_plus()&lt;br/&gt;sdafilter_ends()&lt;br/&gt;import_sda_data()&quot;]
+    F5[&quot;coming soon&quot;]
+  end
+  subgraph L4[&quot;Examples&quot;]
+    E1[&quot;coming soon&quot;]
+    E2[&quot;coming soon&quot;]
+    E3[&quot;coming soon&quot;]
+    E4[&quot;coming soon&quot;]
+    E5[&quot;coming soon&quot;]
+  end
+
+  R --&gt; T1 &amp; T2 &amp; T3 &amp; T4 &amp; T5
+  T1 --&gt; F1 --&gt; E1
+  T2 --&gt; F2 --&gt; E2
+  T3 --&gt; F3 --&gt; E3
+  T4 --&gt; F4 --&gt; E4
+  T5 --&gt; F5 --&gt; E5
+
+  %% One example box per topic: replace &quot;coming soon&quot; with the example name(s),
+  %% each followed by the functions it uses in italics, e.g.
+  %%   E4[&quot;Rexample_sdafilter_plus.R&lt;br/&gt;&lt;i&gt;sdafilter_plus(), sdafilter_ends()&lt;/i&gt;&quot;]
+
+  classDef repo     fill:#E0E0E0,stroke:#616161,color:#000;
+  classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
+  classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
+  classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
+  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#000;
+  class R repo;
+  class T1,T2,T3,T4,T5 topic;
+  class F1,F2,F3,F4,F5 func;
+  class E1,E2,E3,E4,E5 example;
+  class L1,L2,L3,L4 level;</code></pre>
+<p>Grey = repository · green = topics · blue = functions · gold =
+examples (functions used by each example in <em>italics</em>).</p>
+<p>Descriptions, documentation status, examples and background for each
+function are in the <a href="#functions-and-examples">topic sections
+below</a>.</p>
+</div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>The functions are not a package yet. Just load them all with
 <code>source()</code>:</p>
 <pre class="r"><code>fun_dir &lt;- &quot;path/to/vhtoolbox&quot;
 for (f in list.files(fun_dir, pattern = &quot;^Rfun_.*\\.R$&quot;, full.names = TRUE)) source(f)</code></pre>
-<p>I do my best to document all functions in roxygen2 style. However,
-life, time constraints, other projects, fieldwork, etc. may keep me from
-properly documenting functions, so that fully documented versions of
-some functions may only be available at a later time.</p>
 </div>
-<div id="available-functions-and-scripts-to-be-continued" class="section level2">
-<h2>Available functions and scripts (to be continued)</h2>
-<div id="general-spatial-calculations" class="section level3">
-<h3>General (spatial) calculations</h3>
+<div id="functions-and-examples-to-be-continued" class="section level2">
+<h2>Functions and examples (to be continued)</h2>
+<div id="data-wrangling" class="section level3">
+<h3>Data wrangling</h3>
+<div id="functions" class="section level4">
+<h4>Functions</h4>
 <table>
 <colgroup>
 <col width="32%" />
@@ -396,7 +454,7 @@ some functions may only be available at a later time.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>convert_tz</code></td>
+<td><code>convert_tz()</code></td>
 <td>Quick timezone change if e.g. tagging data is local TZ but tracking
 equipment set to UTC</td>
 <td>not documented</td>
@@ -404,9 +462,15 @@ equipment set to UTC</td>
 </tbody>
 </table>
 </div>
-<div id="movement-telemetry-1-filtering-quality-control-and-simulation-of-argos-derived-satellite-tracking-data" class="section level3">
-<h3>Movement &amp; telemetry 1: Filtering, quality control, and
-simulation of Argos derived satellite tracking data</h3>
+</div>
+<div id="statistics" class="section level3">
+<h3>Statistics</h3>
+<p><em>Coming soon.</em></p>
+</div>
+<div id="general-spatial-calculations" class="section level3">
+<h3>General spatial calculations</h3>
+<div id="functions-1" class="section level4">
+<h4>Functions</h4>
 <table>
 <colgroup>
 <col width="32%" />
@@ -422,7 +486,38 @@ simulation of Argos derived satellite tracking data</h3>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>(A) Pre-processing</strong></td>
+<td><code>get_buffered_bbox()</code></td>
+<td>Find the bounding box (bbox) around your location data, with an
+optional buffer</td>
+<td>documented</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="movement-telemetry-1-argos-derived-satellite-tracking-data" class="section level3">
+<h3>Movement &amp; telemetry 1: Argos derived satellite tracking
+data</h3>
+<p>Filtering, quality control, and simulation of Argos derived satellite
+tracking data.</p>
+<div id="functions-2" class="section level4">
+<h4>Functions</h4>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>(A) Pre-processing</em></td>
 <td></td>
 <td></td>
 </tr>
@@ -439,7 +534,7 @@ tracking data</td>
 <td>not documented</td>
 </tr>
 <tr class="even">
-<td><strong>(B) Speed-distance-angle-filters</strong></td>
+<td><em>(B) Speed-distance-angle filters</em></td>
 <td></td>
 <td></td>
 </tr>
@@ -457,7 +552,7 @@ for rows 2 and n−1 (GPL, derived from argosfilter)</td>
 <td>documented</td>
 </tr>
 <tr class="odd">
-<td><strong>(C) State-space models (SSMs)</strong></td>
+<td><em>(C) State-space models (SSMs)</em></td>
 <td></td>
 <td></td>
 </tr>
@@ -491,66 +586,61 @@ Requirements: location class Z removed; at least 5 locations per
 individual; POSIXct times; no NA in coordinates or times.
 </details>
 </div>
-</div>
-<div id="statistics" class="section level2">
-<h2>Statistics</h2>
+<div id="examples" class="section level4">
+<h4>Examples</h4>
 <table>
 <thead>
 <tr class="header">
-<th>Script</th>
-<th>Description</th>
-<th>Status</th>
+<th>Example</th>
+<th>Shows</th>
+<th>Uses</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>TBD</td>
-<td>TBD</td>
-<td>TBD</td>
+<td><em>Coming soon</em></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="data-wrangling" class="section level2">
-<h2>Data wrangling</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Description</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>TBD</td>
-<td>TBD</td>
-<td>TBD</td>
-</tr>
-</tbody>
-</table>
 </div>
-<div id="visualisation" class="section level2">
-<h2>Visualisation</h2>
-<table>
-<thead>
-<tr class="header">
-<th>Script</th>
-<th>Description</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>TBD</td>
-<td>TBD</td>
-<td>TBD</td>
-</tr>
-</tbody>
-</table>
+<div id="visualisation" class="section level3">
+<h3>Visualisation</h3>
+<p><em>Coming soon.</em></p>
+</div>
 </div>
 <div id="conventions" class="section level2">
 <h2>Conventions</h2>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="32%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Folder</th>
+<th>File name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Function</td>
+<td><code>R/</code></td>
+<td><code>Rfun_&lt;topic&gt;_&lt;name&gt;.R</code>
+(e.g. <code>Rfun_sdafilter_plus.R</code>)</td>
+</tr>
+<tr class="even">
+<td>Example (workflow)</td>
+<td><code>inst/examples/</code></td>
+<td><code>Rexample_&lt;topic&gt;.R</code>
+(e.g. <code>Rexample_sdafilter_plus.R</code>)</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><strong>One function per file</strong>, named
 <code>Rfun_&lt;topic&gt;_&lt;name&gt;.R</code>
@@ -568,14 +658,32 @@ argument; species-specific values have no default.</li>
 </ul>
 <p><strong>If you want to contribute to this repo you are very welcome
 to do so.</strong> Adding a function: write
-<code>Rfun_&lt;topic&gt;_&lt;name&gt;.R</code> → add an example → add a
-test to an <code>eval_</code> script → add a row to the table above. Add
-your name to the authors list below.</p>
+<code>Rfun_&lt;topic&gt;_&lt;name&gt;.R</code> → add an example
+<code>Rexample_&lt;topic&gt;.R</code> → add a test
+<code>test-&lt;name&gt;.R</code> → add a row to the topic table above
+and a box to the <a href="#quick-overview">overview</a>. Add your name
+to the authors list below.</p>
 </div>
 <div id="dependencies" class="section level2">
 <h2>Dependencies</h2>
-<p>Depends on the functions used. Currently: <a href="https://CRAN.R-project.org/package=argosfilter">argosfilter</a>
-(tested with 0.70), <a href="https://CRAN.R-project.org/package=geosphere">geosphere</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://CRAN.R-project.org/package=argosfilter">argosfilter</a></td>
+<td>0.70</td>
+</tr>
+<tr class="even">
+<td><a href="https://CRAN.R-project.org/package=geosphere">geosphere</a></td>
+<td>1.6-8</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="licence" class="section level2">
 <h2>Licence</h2>
