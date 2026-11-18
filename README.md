@@ -26,6 +26,10 @@ New tools are added as they come up in projects.
 ---
 config:
   theme: default
+  themeVariables:
+    fontSize: 18px
+    lineColor: "#BDBDBD"
+  themeCSS: ".marker { overflow: visible; } .marker path { transform: scale(1.5); transform-origin: 10px 5px; }"
   look: classic
   layout: dagre
   flowchart:
@@ -79,6 +83,7 @@ flowchart LR
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
   class L1,L2,L3,L4 level;
+  linkStyle default stroke:#BDBDBD,stroke-width:2.5px;
 ```
 
 Grey = repository · green = topics · blue = functions · gold = examples
