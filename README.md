@@ -83,7 +83,7 @@ flowchart LR
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
   class L1,L2,L3,L4 level;
-  linkStyle default stroke:#BDBDBD,stroke-width:2.5px;
+  linkStyle default stroke:#BDBDBD,stroke-width:1.5px;
 ```
 
 Grey = repository · green = topics · blue = functions · gold = examples
