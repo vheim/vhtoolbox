@@ -23,27 +23,35 @@ New tools are added as they come up in projects.
 ## Quick overview
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "monotoneX"}}}%%
+---
+config:
+  theme: default
+  look: classic
+  layout: dagre
+  flowchart:
+    curve: monotoneX
+    wrappingWidth: 400
+---
 flowchart LR
-  subgraph L1["<b>Repository</b>"]
+  subgraph L1["`**Repository**`"]
     R["vhtoolbox"]
   end
-  subgraph L2["<b>Topics</b>"]
+  subgraph L2["`**Topics**`"]
     T1["Data wrangling"]
     T2["Statistics"]
     T3["General spatial calculations"]
     T4["Movement & telemetry 1:<br/>Argos derived satellite tracking data"]
     T5["Visualisation"]
   end
-  subgraph L3["<b>Functions</b>"]
+  subgraph L3["`**Functions**`"]
     F1["convert_tz()"]
     F2["coming soon"]
     F3["get_buffered_bbox()"]
     F4["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
     F5["coming soon"]
   end
-  subgraph L4["<b>Examples</b>"]
-    E1["coming soon"]
+  subgraph L4["`**Examples**`"]
+    E1["coming soon<br/><i>example1(), example2()</i>"]
     E2["coming soon"]
     E3["coming soon"]
     E4["coming soon"]
