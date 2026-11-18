@@ -42,7 +42,7 @@ flowchart LR
     F5["coming soon"]
   end
   subgraph L4["Examples"]
-    E1["coming soon"<br/><i>example1(), example2()</i>"]
+    E1["coming soon<br/><i>example1(), example2()</i>"]
     E2["coming soon"]
     E3["coming soon"]
     E4["coming soon"]
