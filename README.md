@@ -23,30 +23,25 @@ New tools are added as they come up in projects.
 ## Quick overview
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "linear", "rankSpacing": 40, "nodeSpacing": 20, "wrappingWidth": 500}}}%%
 flowchart LR
-  %% P1/P2 = invisible spacers that make the Repository box as tall as the others;
-  %% add or remove <br/> in both if the other columns get taller or shorter.
-  subgraph L1["Repository"]
-    P1["<br/><br/><br/><br/>"]
+  subgraph L1["<b>Repository</b>"]
     R["vhtoolbox"]
-    P2["<br/><br/><br/><br/>"]
   end
-  subgraph L2["Topics"]
+  subgraph L2["<b>Topics</b>"]
     T1["Data wrangling"]
     T2["Statistics"]
     T3["General spatial calculations"]
     T4["Movement & telemetry 1:<br/>Argos derived satellite tracking data"]
     T5["Visualisation"]
   end
-  subgraph L3["Functions"]
+  subgraph L3["<b>Functions</b>"]
     F1["convert_tz()"]
     F2["coming soon"]
     F3["get_buffered_bbox()"]
     F4["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
     F5["coming soon"]
   end
-  subgraph L4["Examples"]
+  subgraph L4["<b>Examples</b>"]
     E1["coming soon<br/><i>example1(), example2()</i>"]
     E2["coming soon"]
     E3["coming soon"]
@@ -69,10 +64,8 @@ flowchart LR
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
-  classDef level    fill:none,stroke:#9E9E9E,stroke-dasharray:4 4,color:#9E9E9E;
-  classDef spacer   fill:none,stroke:none,color:none;
+  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
   class R repo;
-  class P1,P2 spacer;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
