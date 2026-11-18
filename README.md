@@ -23,7 +23,6 @@ New tools are added as they come up in projects.
 ## Quick overview
 
 ```mermaid
-%%flowchart LR
 graph LR
   subgraph L1["<b>Repository</b>"]
     R["vhtoolbox"]
