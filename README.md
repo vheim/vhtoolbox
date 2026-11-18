@@ -42,7 +42,7 @@ flowchart LR
     F5["coming soon"]
   end
   subgraph L4["<b>Examples</b>"]
-    E1["coming soon<br/><i>example1(), example2()</i>"]
+    E1["coming soon"]
     E2["coming soon"]
     E3["coming soon"]
     E4["coming soon"]
@@ -64,7 +64,7 @@ flowchart LR
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
-  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
+  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#000;
   class R repo;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
