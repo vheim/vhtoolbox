@@ -23,9 +23,14 @@ New tools are added as they come up in projects.
 ## Quick overview
 
 ```mermaid
+%%{init: {"flowchart": {"curve": "linear", "rankSpacing": 40, "nodeSpacing": 20, "wrappingWidth": 500}}}%%
 flowchart LR
+  %% P1/P2 = invisible spacers that make the Repository box as tall as the others;
+  %% add or remove <br/> in both if the other columns get taller or shorter.
   subgraph L1["Repository"]
+    P1["<br/><br/><br/><br/>"]
     R["vhtoolbox"]
+    P2["<br/><br/><br/><br/>"]
   end
   subgraph L2["Topics"]
     T1["Data wrangling"]
@@ -64,8 +69,10 @@ flowchart LR
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
-  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#000;
+  classDef level    fill:none,stroke:#9E9E9E,stroke-dasharray:4 4,color:#9E9E9E;
+  classDef spacer   fill:none,stroke:none,color:none;
   class R repo;
+  class P1,P2 spacer;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
@@ -76,7 +83,7 @@ Grey = repository · green = topics · blue = functions · gold = examples
 (functions used by each example in *italics*).
 
 Descriptions, documentation status, examples and background for each function are in the
-[topic sections below](#functions-and-examples).
+[topic sections below](#functions-and-examples-to-be-continued).
 
 ## Installation
 
@@ -174,7 +181,7 @@ times; no NA in coordinates or times.
 
 **If you want to contribute to this repo you are very welcome to do so.**
 Adding a function: write `Rfun_<topic>_<name>.R` → add an example `Rexample_<topic>.R` →
-add a test `test-<name>.R` → add a row to the topic table above and a box to the
+add a row to the topic table above and a box to the
 [overview](#quick-overview). Add your name to the authors list below.
 
 ## Dependencies
