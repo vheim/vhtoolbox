@@ -23,7 +23,8 @@ New tools are added as they come up in projects.
 ## Quick overview
 
 ```mermaid
-graph LR
+%%{init: {"flowchart": {"curve": "monotoneX"}}}%%
+flowchart LR
   subgraph L1["<b>Repository</b>"]
     R["vhtoolbox"]
   end
@@ -64,7 +65,7 @@ graph LR
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
-  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#000;
+  classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
   class R repo;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
