@@ -217,6 +217,17 @@ add a row to the topic table above and a box to the
 `LICENSE`. You may use, modify and share the code; modified versions that are shared must
 also be released under GPL-3.
 
+## Citation
+
+If you use functions, examples or plots from this repository in your work (analyses,
+publications, reports, teaching material), please give credit by citing it:
+
+> Heim V (2026). *vhtoolbox: R toolbox for movement ecology and telemetry, statistics,
+> data wrangling and visualisation.* GitHub repository. https://github.com/vheim/vhtoolbox
+
+Where functions build on published methods (e.g. `sdafilter_plus()` on Freitas et al. 2008),
+please also cite the original publications listed under [References](#references).
+
 ## Third-party code
 
 Some functions contain or are derived from code by other authors. Their copyright notices and
