@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use functions, examples or plots from this repository, please cite it as below."
+title: "vhtoolbox: R toolbox for movement ecology and telemetry, statistics, data wrangling and visualisation"
+authors:
+  - family-names: Heim
+    given-names: Vital
+    orcid: "https://orcid.org/0000-0002-8492-9196"
+repository-code: "https://github.com/vheim/vhtoolbox"
+license: GPL-3.0
+date-released: 2026-11-19
