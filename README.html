@@ -373,27 +373,39 @@ written following the <code>snake_case</code> naming convention.</p>
 <p>New tools are added as they come up in projects.</p>
 <div id="quick-overview" class="section level2">
 <h2>Quick overview</h2>
-<pre class="mermaid"><code>%%{init: {&quot;flowchart&quot;: {&quot;curve&quot;: &quot;monotoneX&quot;}}}%%
+<pre class="mermaid"><code>---
+config:
+  theme: default
+  themeVariables:
+    fontSize: 20px
+    lineColor: &quot;#BDBDBD&quot;
+  themeCSS: &quot;.marker { overflow: visible; } .marker path { transform: scale(1.5); transform-origin: 10px 5px; }&quot;
+  look: classic
+  layout: dagre
+  flowchart:
+    curve: monotoneX
+    wrappingWidth: 400
+---
 flowchart LR
-  subgraph L1[&quot;&lt;b&gt;Repository&lt;/b&gt;&quot;]
+  subgraph L1[&quot;`**Repository**`&quot;]
     R[&quot;vhtoolbox&quot;]
   end
-  subgraph L2[&quot;&lt;b&gt;Topics&lt;/b&gt;&quot;]
+  subgraph L2[&quot;`**Topics**`&quot;]
     T1[&quot;Data wrangling&quot;]
     T2[&quot;Statistics&quot;]
     T3[&quot;General spatial calculations&quot;]
     T4[&quot;Movement &amp; telemetry 1:&lt;br/&gt;Argos derived satellite tracking data&quot;]
     T5[&quot;Visualisation&quot;]
   end
-  subgraph L3[&quot;&lt;b&gt;Functions&lt;/b&gt;&quot;]
+  subgraph L3[&quot;`**Functions**`&quot;]
     F1[&quot;convert_tz()&quot;]
     F2[&quot;coming soon&quot;]
     F3[&quot;get_buffered_bbox()&quot;]
     F4[&quot;make_unique()&lt;br/&gt;check_duplicated_ts()&lt;br/&gt;sdafilter_plus()&lt;br/&gt;sdafilter_ends()&lt;br/&gt;import_sda_data()&quot;]
-    F5[&quot;coming soon&quot;]
+    F5[&quot;add_horiz_bar_labels()&quot;]
   end
-  subgraph L4[&quot;&lt;b&gt;Examples&lt;/b&gt;&quot;]
-    E1[&quot;coming soon&quot;]
+  subgraph L4[&quot;`**Examples**`&quot;]
+    E1[&quot;coming soon&lt;br/&gt;&lt;i&gt;example1(), example2()&lt;/i&gt;&quot;]
     E2[&quot;coming soon&quot;]
     E3[&quot;coming soon&quot;]
     E4[&quot;coming soon&quot;]
@@ -420,7 +432,8 @@ flowchart LR
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
-  class L1,L2,L3,L4 level;</code></pre>
+  class L1,L2,L3,L4 level;
+  linkStyle default stroke:#BDBDBD,stroke-width:2.0px;</code></pre>
 <p>Grey = repository · green = topics · blue = functions · gold =
 examples (functions used by each example in <em>italics</em>).</p>
 <p>Descriptions, documentation status, examples and background for each
@@ -749,7 +762,6 @@ of the Southern Ocean. <em>Antarctic Science</em> 4: 393–398.</li>
 <ul>
 <li>Vital Heim (primary)</li>
 </ul>
-<pre class="mermaid"><code>info</code></pre>
 </div>
 </div>
 

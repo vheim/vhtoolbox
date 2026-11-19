@@ -52,7 +52,7 @@ flowchart LR
     F2["coming soon"]
     F3["get_buffered_bbox()"]
     F4["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
-    F5["coming soon"]
+    F5["add_horiz_bar_labels()"]
   end
   subgraph L4["`**Examples**`"]
     E1["coming soon<br/><i>example1(), example2()</i>"]
@@ -60,6 +60,7 @@ flowchart LR
     E3["coming soon"]
     E4["coming soon"]
     E5["coming soon"]
+    G5["Example plots<br/><i>gallery/</i>"]
   end
 
   R --> T1 & T2 & T3 & T4 & T5
@@ -68,29 +69,35 @@ flowchart LR
   T3 --> F3 --> E3
   T4 --> F4 --> E4
   T5 --> F5 --> E5
+  T5 ---> G5
 
   %% One example box per topic: replace "coming soon" with the example name(s),
   %% each followed by the functions it uses in italics, e.g.
   %%   E4["Rexample_sdafilter_plus.R<br/><i>sdafilter_plus(), sdafilter_ends()</i>"]
+  %% ---> (three dashes) skips one column: Visualisation -> gallery box in the Examples column
 
   classDef repo     fill:#E0E0E0,stroke:#616161,color:#000;
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
+  classDef gallery  fill:#F3E5F5,stroke:#7B1FA2,color:#000;
   classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
   class R repo;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
+  class G5 gallery;
   class L1,L2,L3,L4 level;
   linkStyle default stroke:#BDBDBD,stroke-width:2.0px;
 ```
 
 Grey = repository · green = topics · blue = functions · gold = examples
-(functions used by each example in *italics*).
+(functions used by each example in *italics*) · magenta = gallery
 
 Descriptions, documentation status, examples and background for each function are in the
 [topic sections below](#functions-and-examples-to-be-continued).
+
+Example plots made with the visualisation functions are in the [gallery](gallery/).
 
 ## Installation
 
@@ -169,7 +176,11 @@ times; no NA in coordinates or times.
 
 ### Visualisation
 
-*Coming soon.*
+| Function | Description | Status |
+|----------|-------------|--------|
+| `add_horiz_bar_labels()` | Add value labels in boxes next to bars on horizontal barplots | documented |
+
+Example plots: [gallery](gallery/).
 
 ## Conventions
 
@@ -177,6 +188,8 @@ times; no NA in coordinates or times.
 |------|--------|-----------|
 | Function | `R/` | `Rfun_<topic>_<name>.R` (e.g. `Rfun_sdafilter_plus.R`) |
 | Example (workflow) | `inst/examples/` | `Rexample_<topic>.R` (e.g. `Rexample_sdafilter_plus.R`) |
+<!--| Gallery code | `gallery/code/` | `gallery_<function>.R` (e.g. `gallery_add_horiz_bar_labels.R`) | -->
+<!--| Gallery image | `gallery/img/` | `<function>_<variant>.png` (e.g. `add_horiz_bar_labels_butterfly.png`) | -->
 
 - **One function per file**, named `Rfun_<topic>_<name>.R` (e.g. `Rfun_sdafilter_plus.R`).
   Internal helpers start with a dot (`.prepare_track()`) and live in the file of the function
