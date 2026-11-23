@@ -66,7 +66,7 @@ flowchart LR
     G6["Example plots<br/><i>gallery/</i>"]
   end
 
-  R --> T1 & T2 & T3 & T4 & T5
+  R --> T1 & T2 & T3 & T4 & T5 & T6
   T1 --> F1 --> E1
   T2 --> F2 --> E2
   T3 --> F3 --> E3
