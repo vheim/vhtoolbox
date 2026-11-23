@@ -1,8 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
 # vhtoolbox <img src="man/figures/logo.png" align="right" height="300" alt="vhtoolbox logo" />
 
 <!-- badges: start -->
@@ -92,9 +87,9 @@ flowchart LR
   classDef gallery  fill:#F3E5F5,stroke:#7B1FA2,color:#000;
   classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
   class R repo;
-  class T1,T2,T3,T4,T5 topic;
-  class F1,F2,F3,F4,F5 func;
-  class E1,E2,E3,E4,E5 example;
+  class T1,T2,T3,T4,T5,T6 topic;
+  class F1,F2,F3,F4,F5,F6 func;
+  class E1,E2,E3,E4,E5,E6 example;
   class G5 gallery;
   class L1,L2,L3,L4 level;
   linkStyle default stroke:#BDBDBD,stroke-width:2.0px;
