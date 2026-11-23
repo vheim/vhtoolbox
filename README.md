@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 # vhtoolbox <img src="man/figures/logo.png" align="right" height="300" alt="vhtoolbox logo" />
 
 <!-- badges: start -->
@@ -44,15 +49,17 @@ flowchart LR
     T1["Data wrangling"]
     T2["Statistics"]
     T3["General spatial calculations"]
-    T4["Movement & telemetry 1:<br/>Argos derived satellite tracking data"]
-    T5["Visualisation"]
+    T4["Movement 6 Telemetry 1:<br/><i>Miscellaneous</i>"]
+    T5["Movement & telemetry 2:<br/><i>Argos derived satellite tracking data</i>"]
+    T6["Visualisation"]
   end
   subgraph L3["`**Functions**`"]
     F1["convert_tz()"]
     F2["coming soon"]
     F3["get_buffered_bbox()"]
-    F4["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
-    F5["add_horiz_bar_labels()"]
+    F4["summarise_tracks()"]
+    F5["make_unique()<br/>check_duplicated_ts()<br/>sdafilter_plus()<br/>sdafilter_ends()<br/>import_sda_data()"]
+    F6["add_horiz_bar_labels()"]
   end
   subgraph L4["`**Examples**`"]
     E1["coming soon<br/><i>example1(), example2()</i>"]
@@ -60,7 +67,8 @@ flowchart LR
     E3["coming soon"]
     E4["coming soon"]
     E5["coming soon"]
-    G5["Example plots<br/><i>gallery/</i>"]
+    E6["Butterfly plot<br/><i>add_horiz_bar_labels()</i>"]
+    G6["Example plots<br/><i>gallery/</i>"]
   end
 
   R --> T1 & T2 & T3 & T4 & T5
@@ -69,7 +77,8 @@ flowchart LR
   T3 --> F3 --> E3
   T4 --> F4 --> E4
   T5 --> F5 --> E5
-  T5 ---> G5
+  T6 --> F6 --> E6
+  T6 ---> G6
 
   %% One example box per topic: replace "coming soon" with the example name(s),
   %% each followed by the functions it uses in italics, e.g.
@@ -129,7 +138,17 @@ for (f in list.files(fun_dir, pattern = "^Rfun_.*\\.R$", full.names = TRUE)) sou
 |----------|-------------|--------|
 | `get_buffered_bbox()` | Find the bounding box (bbox) around your location data, with an optional buffer | documented |
 
-### Movement & telemetry 1: Argos derived satellite tracking data
+### Movement & telemetry 1: Miscellaneous
+
+Collection of general functions and examples for summarising or analysing movement/tracking data.
+
+#### Functions
+
+| Function | Description | Status |
+|----------|-------------|--------|
+| `summarise_tracks()` | Quick summary of track metrics such as days at liberty and track lengths | documented |
+
+### Movement & telemetry 2: Argos derived satellite tracking data
 
 Filtering, quality control, and simulation of Argos derived satellite tracking data.
 

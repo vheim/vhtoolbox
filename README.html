@@ -394,15 +394,17 @@ flowchart LR
     T1[&quot;Data wrangling&quot;]
     T2[&quot;Statistics&quot;]
     T3[&quot;General spatial calculations&quot;]
-    T4[&quot;Movement &amp; telemetry 1:&lt;br/&gt;Argos derived satellite tracking data&quot;]
-    T5[&quot;Visualisation&quot;]
+    T4[&quot;Movement 6 Telemetry 1:&lt;br/&gt;&lt;i&gt;Miscellaneous&lt;/i&gt;&quot;]
+    T5[&quot;Movement &amp; telemetry 2:&lt;br/&gt;&lt;i&gt;Argos derived satellite tracking data&lt;/i&gt;&quot;]
+    T6[&quot;Visualisation&quot;]
   end
   subgraph L3[&quot;`**Functions**`&quot;]
     F1[&quot;convert_tz()&quot;]
     F2[&quot;coming soon&quot;]
     F3[&quot;get_buffered_bbox()&quot;]
-    F4[&quot;make_unique()&lt;br/&gt;check_duplicated_ts()&lt;br/&gt;sdafilter_plus()&lt;br/&gt;sdafilter_ends()&lt;br/&gt;import_sda_data()&quot;]
-    F5[&quot;add_horiz_bar_labels()&quot;]
+    F4[&quot;summarise_tracks()&quot;]
+    F5[&quot;make_unique()&lt;br/&gt;check_duplicated_ts()&lt;br/&gt;sdafilter_plus()&lt;br/&gt;sdafilter_ends()&lt;br/&gt;import_sda_data()&quot;]
+    F6[&quot;add_horiz_bar_labels()&quot;]
   end
   subgraph L4[&quot;`**Examples**`&quot;]
     E1[&quot;coming soon&lt;br/&gt;&lt;i&gt;example1(), example2()&lt;/i&gt;&quot;]
@@ -410,6 +412,8 @@ flowchart LR
     E3[&quot;coming soon&quot;]
     E4[&quot;coming soon&quot;]
     E5[&quot;coming soon&quot;]
+    E6[&quot;Butterfly plot&lt;br/&gt;&lt;i&gt;add_horiz_bar_labels()&lt;/i&gt;&quot;]
+    G6[&quot;Example plots&lt;br/&gt;&lt;i&gt;gallery/&lt;/i&gt;&quot;]
   end
 
   R --&gt; T1 &amp; T2 &amp; T3 &amp; T4 &amp; T5
@@ -418,27 +422,34 @@ flowchart LR
   T3 --&gt; F3 --&gt; E3
   T4 --&gt; F4 --&gt; E4
   T5 --&gt; F5 --&gt; E5
+  T6 --&gt; F6 --&gt; E6
+  T6 ---&gt; G6
 
   %% One example box per topic: replace &quot;coming soon&quot; with the example name(s),
   %% each followed by the functions it uses in italics, e.g.
   %%   E4[&quot;Rexample_sdafilter_plus.R&lt;br/&gt;&lt;i&gt;sdafilter_plus(), sdafilter_ends()&lt;/i&gt;&quot;]
+  %% ---&gt; (three dashes) skips one column: Visualisation -&gt; gallery box in the Examples column
 
   classDef repo     fill:#E0E0E0,stroke:#616161,color:#000;
   classDef topic    fill:#D9EAD3,stroke:#38761D,color:#000;
   classDef func     fill:#DCE8F7,stroke:#1F5FAD,color:#000;
   classDef example  fill:#FFF4D6,stroke:#B8860B,color:#000;
+  classDef gallery  fill:#F3E5F5,stroke:#7B1FA2,color:#000;
   classDef level    fill:none,stroke:#BDBDBD,stroke-dasharray:4 4,color:#BDBDBD;
   class R repo;
   class T1,T2,T3,T4,T5 topic;
   class F1,F2,F3,F4,F5 func;
   class E1,E2,E3,E4,E5 example;
+  class G5 gallery;
   class L1,L2,L3,L4 level;
   linkStyle default stroke:#BDBDBD,stroke-width:2.0px;</code></pre>
 <p>Grey = repository · green = topics · blue = functions · gold =
-examples (functions used by each example in <em>italics</em>).</p>
+examples (functions used by each example in <em>italics</em>) · magenta
+= gallery</p>
 <p>Descriptions, documentation status, examples and background for each
 function are in the <a href="#functions-and-examples-to-be-continued">topic sections
 below</a>.</p>
+<p>Example plots made with the visualisation functions are in the <a href="gallery/">gallery</a>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
@@ -509,12 +520,42 @@ optional buffer</td>
 </table>
 </div>
 </div>
-<div id="movement-telemetry-1-argos-derived-satellite-tracking-data" class="section level3">
-<h3>Movement &amp; telemetry 1: Argos derived satellite tracking
+<div id="movement-telemetry-1-miscellaneous" class="section level3">
+<h3>Movement &amp; telemetry 1: Miscellaneous</h3>
+<p>Collection of general functions and examples for summarising or
+analysing movement/tracking data.</p>
+<div id="functions-2" class="section level4">
+<h4>Functions</h4>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>summarise_tracks()</code></td>
+<td>Quick summary of track metrics such as days at liberty and track
+lengths</td>
+<td>documented</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="movement-telemetry-2-argos-derived-satellite-tracking-data" class="section level3">
+<h3>Movement &amp; telemetry 2: Argos derived satellite tracking
 data</h3>
 <p>Filtering, quality control, and simulation of Argos derived satellite
 tracking data.</p>
-<div id="functions-2" class="section level4">
+<div id="functions-3" class="section level4">
 <h4>Functions</h4>
 <table>
 <colgroup>
@@ -622,7 +663,28 @@ individual; POSIXct times; no NA in coordinates or times.
 </div>
 <div id="visualisation" class="section level3">
 <h3>Visualisation</h3>
-<p><em>Coming soon.</em></p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>add_horiz_bar_labels()</code></td>
+<td>Add value labels in boxes next to bars on horizontal barplots</td>
+<td>documented</td>
+</tr>
+</tbody>
+</table>
+<p>Example plots: <a href="gallery/">gallery</a>.</p>
 </div>
 </div>
 <div id="conventions" class="section level2">
@@ -655,6 +717,8 @@ individual; POSIXct times; no NA in coordinates or times.
 </tr>
 </tbody>
 </table>
+<!--| Gallery code | `gallery/code/` | `gallery_<function>.R` (e.g. `gallery_add_horiz_bar_labels.R`) | -->
+<!--| Gallery image | `gallery/img/` | `<function>_<variant>.png` (e.g. `add_horiz_bar_labels_butterfly.png`) | -->
 <ul>
 <li><strong>One function per file</strong>, named
 <code>Rfun_&lt;topic&gt;_&lt;name&gt;.R</code>
@@ -704,6 +768,20 @@ name to the authors list below.</p>
 License v3.0</a> (GPL-3), see <code>LICENSE</code>. You may use, modify
 and share the code; modified versions that are shared must also be
 released under GPL-3.</p>
+</div>
+<div id="citation" class="section level2">
+<h2>Citation</h2>
+<p>If you use functions, examples or plots from this repository in your
+work (analyses, publications, reports, teaching material), please give
+credit by citing it:</p>
+<blockquote>
+<p>Heim V (2026). <em>vhtoolbox: R toolbox for movement ecology and
+telemetry, statistics, data wrangling and visualisation.</em> GitHub
+repository. <a href="https://github.com/vheim/vhtoolbox" class="uri">https://github.com/vheim/vhtoolbox</a></p>
+</blockquote>
+<p>Where functions build on published methods
+(e.g. <code>sdafilter_plus()</code> on Freitas et al. 2008), please also
+cite the original publications listed under <a href="#references">References</a>.</p>
 </div>
 <div id="third-party-code" class="section level2">
 <h2>Third-party code</h2>
